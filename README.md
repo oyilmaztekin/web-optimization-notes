@@ -54,9 +54,42 @@ In chrome dev tools painting and repainting can be observed. `inspect > paint fl
 - avoid blocking less critical css and js by loading them as a `preload`( use [third-party tool](https://github.com/filamentgroup/loadCSS) if doesn't supported by browsers )
   - another third party tool: `webpack-plugin-critical`
 
+## Script Loading
+**Traditional Script Loading**
+- Parsing HTML
+- Parsing Render Blocked
+  - Downloading scripts
+  - parsing & running downloaded scripts
+- Parsing HTML
+
+**`async` Script Loading**
+Downloaded while the browser is parsing the HTML. As soon as scripts downloaded will executed regardless the parsing completed or not. Use it when you want to modularize small piece of js not depend on any other script.
+
+- Parsing HTML
+  - Downloading scripts
+- HTML Blocked
+  - parsing & running downloaded scripts
+- Parsing HTML
+
+**`defer` Script Loading**
+The main differences between `defer` and `async` the `defer` will executed after parsing html completed.
+- Parsing HTML
+  - Downloading scripts
+- Parsing HTML
+  - parsing & running downloaded scripts
+
+### Benefit of `async` and `defer`
+- The key benefit of using `async` and `defer` is downloading the js earlier while not blocking HTML parsing. 
+- Load scripts with this tags into the header. You won't get much benefit if its placed into the body. Because document will be already created.
+
+**TLDR**
+- Avoid to use script inside of the header. If your thinking it has to be placed inside of the header move it into the end of the body
+- 
 
 ## Resources
 - https://www.zachleat.com/web/comprehensive-webfonts/
 - https://github.com/bramstein/fontfaceobserver
 - https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
-- https://css-tricks.com/almanac/properties/w/will-change/
+- https://css-tricks.com/almanac/properties/w/will-change/ 
+- https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/ 
+- https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path
