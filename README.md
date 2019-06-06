@@ -113,3 +113,9 @@ Best practices:
 - https://css-tricks.com/almanac/properties/w/will-change/ 
 - https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/ 
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path
+
+### should follow
+- http://www.perfplanet.com/
+- https://perf.rocks/
+- http://css-tricks.com/
+- https://www.smashingmagazine.com/
