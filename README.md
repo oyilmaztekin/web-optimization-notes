@@ -63,7 +63,7 @@ In chrome dev tools painting and repainting can be observed. `inspect > paint fl
 - Parsing HTML
 
 **`async` Script Loading**
-Downloaded while the browser is parsing the HTML. As soon as scripts downloaded will executed regardless the parsing completed or not. Use it when you want to modularize small piece of js not depend on any other script.
+Downloaded while the browser is parsing the HTML. As soon as scripts downloaded will executed regardless the parsing completed or not. 
 
 - Parsing HTML
   - Downloading scripts
@@ -84,7 +84,20 @@ The main differences between `defer` and `async` the `defer` will executed after
 
 **TLDR**
 - Avoid to use script inside of the header. If your thinking it has to be placed inside of the header move it into the end of the body
-- 
+- Use `async` when you want to modularize small piece of js not depend on any other script such as analytics, metrica etc... -  - Use `defer` for everything else. 
+
+### Lazy Loading
+- Great for reducing render blocking media content
+- Can also be applied using infinite scroll
+- Prune hundreds of kb
+- Can be implemented by developer using with [`IntersectionObserver`](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) instead of using huge size of libraries 
+- Don't forget to apply `<noscript>` scenario if performance is optimized by the js solution
+
+### Minification
+- Bundling is important but gzipping is essential. 
+- Gzipping also solves repeating text problem.  
+- Gzipping works on the backend just before the HTTP response. 
+- Project isn't "production ready" if it is not compressed or minified
 
 ## Resources
 - https://www.zachleat.com/web/comprehensive-webfonts/
