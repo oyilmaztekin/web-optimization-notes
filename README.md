@@ -36,6 +36,25 @@ In chrome dev tools painting and repainting can be observed. `inspect > paint fl
 - Animate using transform and opacity
 - Always do tests
 
+## Critical Rendering
+- Analyze the page what is critical and most important what is not
+
+**Render Blocking Resources**
+- stylesheet
+- scripts
+- fonts
+
+**What is Critical?**
+- Case by case ( Contents should prioritized based on user interacts with )
+- Usally above the fold ( not always but frequently user interacts the content above the fold first - good to start here) 
+- User prioritized content
+
+**How?**
+- split most important css and js content and load them first (like header.css, header.js - chunking)
+- avoid blocking less critical css and js by loading them as a `preload`( use [third-party tool](https://github.com/filamentgroup/loadCSS) if doesn't supported by browsers )
+  - another third party tool: `webpack-plugin-critical`
+
+
 ## Resources
 - https://www.zachleat.com/web/comprehensive-webfonts/
 - https://github.com/bramstein/fontfaceobserver
